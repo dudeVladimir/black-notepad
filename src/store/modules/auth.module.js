@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { error } from '@/utils/error'
 const TOKEN_KEY = 'jwt-token'
+const USER_ID = 'local-id'
 
 export default {
   namespaced: true,
   state() {
     return {
       token: localStorage.getItem(TOKEN_KEY),
+      localId: localStorage.getItem(USER_ID),
     }
   },
   mutations: {
@@ -14,9 +16,15 @@ export default {
       state.token = token
       localStorage.setItem(TOKEN_KEY, token)
     },
+    setlocalId(state, localId) {
+      state.localId = localId
+      localStorage.setItem(USER_ID, localId)
+    },
     logout(state) {
       state.token = null
       localStorage.removeItem(TOKEN_KEY)
+      state.localId = null
+      localStorage.removeItem(USER_ID)
     },
   },
   actions: {
@@ -28,7 +36,7 @@ export default {
           returnSecureToken: true,
         })
         commit('setToken', data.idToken)
-        console.log(data)
+        commit('setlocalId', data.localId)
       } catch (e) {
         console.log(error(e.response.data.error.message))
       }
@@ -37,6 +45,9 @@ export default {
   getters: {
     token(state) {
       return state.token
+    },
+    localId(state) {
+      return state.localId
     },
     isAuthenticated(_, getters) {
       return !!getters.token
