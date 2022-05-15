@@ -28,7 +28,7 @@ export default {
     },
   },
   actions: {
-    async login({ commit }, user) {
+    async login({ commit, dispatch }, user) {
       try {
         const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_FB_KEY}`
         const { data } = await axios.post(url, {
@@ -37,8 +37,17 @@ export default {
         })
         commit('setToken', data.idToken)
         commit('setlocalId', data.localId)
+        commit('clearMessage', null, { root: true })
       } catch (e) {
-        console.log(error(e.response.data.error.message))
+        dispatch(
+          'setMessage',
+          {
+            value: error(e.response.data.error.message),
+            type: 'danger',
+          },
+          { root: true }
+        )
+        throw new Error()
       }
     },
   },

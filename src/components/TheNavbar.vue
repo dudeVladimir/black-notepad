@@ -6,9 +6,6 @@
       <router-link to="/create" class="nav-link-block__link"
         >Создать</router-link
       >
-      <router-link to="/favorite" class="nav-link-block__link"
-        >Избранные</router-link
-      >
       <router-link to="/faq" class="nav-link-block__link">FAQ</router-link>
       <a
         href="https://github.com/dudeVladimir"

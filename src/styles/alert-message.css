@@ -1,0 +1,36 @@
+.alert {
+  padding: 20px;
+  background-color: #2c2e31;
+  border-left: 7px solid;
+  position: relative;
+}
+
+.alert.danger {
+  border-color: #b22222;
+}
+
+.alert.warning {
+  border-color: #b2a422;
+}
+
+.alert.primary {
+  border-color: #22b241;
+}
+
+.alert__title {
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #afb1b4;
+  margin-bottom: 10px;
+}
+
+.alert__close {
+  font-size: 25px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
+}
+.alert__close:hover {
+  color: #d6d8db;
+}

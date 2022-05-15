@@ -20,14 +20,6 @@ const routes = [
     },
   },
   {
-    path: '/favorite',
-    component: () => import('@/views/FavoritePage.vue'),
-    meta: {
-      layout: 'main',
-      auth: true,
-    },
-  },
-  {
     path: '/faq',
     component: () => import('@/views/FaqPage.vue'),
     meta: {

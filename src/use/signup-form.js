@@ -48,10 +48,12 @@ export function useSignupForm() {
   })
 
   const onSubmit = handleSubmit(async (values) => {
-    await store.dispatch('signup/signup', values)
-    localStorage.setItem('name', values.name)
-    //Реализовать приветсвие не забудь ебик!!! и почистить коменты перед деплоем и заливом на ГХ
-    router.push('/auth')
+    try {
+      await store.dispatch('signup/signup', values)
+      localStorage.setItem('name', values.name)
+      //Реализовать приветсвие не забудь!!!
+      router.push('/auth')
+    } catch (e) {}
   })
 
   return {
