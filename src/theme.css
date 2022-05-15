@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url(./styles/navbar.css);
+@import url(./styles/auth-form.css);
+
+* {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: #e8eaed;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #202124;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.container_with-nav {
+  max-width: 1400px;
+  padding: 0 20px;
+  margin: 0 auto;
+  margin-top: 70px;
+}

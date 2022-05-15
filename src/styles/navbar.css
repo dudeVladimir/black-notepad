@@ -1,0 +1,31 @@
+nav {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  background-color: #17171a;
+  border-bottom: 1px solid #afb1b4;
+}
+
+.nav-link-block__link {
+  text-decoration: none;
+  padding: 5px;
+  margin: 10px;
+}
+
+.nav-link-block__link:hover {
+  text-decoration: none;
+  padding: 5px;
+  margin: 10px;
+  color: #d6d8db;
+}
+
+.nav-link-block__link.active {
+  border-bottom: 2px solid #705831;
+}
