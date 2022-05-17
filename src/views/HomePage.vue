@@ -1,15 +1,15 @@
 <template>
-  <div class="home-page">
+  <app-loader v-if="loading"></app-loader>
+  <div class="home-page" v-else>
     <the-sidebar>
-      <the-filter></the-filter>
+      <the-filter v-model="filter"></the-filter>
     </the-sidebar>
     <section class="home-page__content">
+      <app-page-title title="Все заметки"></app-page-title>
       <app-notes :notes="notes" v-if="notes.length > 0"></app-notes>
       <h3 v-else>
         Заметок нет,
-        <router-link to="/create" class="home-to-create"
-          >создайте новую</router-link
-        >
+        <router-link to="/create" class="to">создайте новую</router-link>
       </h3>
     </section>
   </div>
@@ -19,23 +19,46 @@
 import TheSidebar from '@/components/ui/TheSidebar.vue'
 import TheFilter from '@/components/TheFilter.vue'
 import AppNotes from '@/components/ui/AppNotes.vue'
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted, ref } from '@vue/runtime-core'
 import { useStore } from 'vuex'
+import AppPageTitle from '@/components/ui/AppPageTitle.vue'
+import AppLoader from '@/components/ui/AppLoader.vue'
 
 export default {
   setup() {
     const store = useStore()
 
-    const notes = computed(() => store.getters['notes/notes'])
+    const loading = ref(false)
+    const filter = ref({})
 
-    return { notes }
+    onMounted(async () => {
+      loading.value = true
+      await store.dispatch('request/load')
+      loading.value = false
+    })
+
+    const notes = computed(() =>
+      store.getters['request/requests']
+        .filter((note) => {
+          if (filter.value.title) {
+            return note.title.includes(filter.value.title)
+          } else {
+            return note
+          }
+        })
+        .filter((note) => {
+          if (filter.value.type) {
+            return note.type.includes(filter.value.type)
+          } else {
+            return note
+          }
+        })
+    )
+
+    return { loading, notes, filter }
   },
-  components: { TheFilter, TheSidebar, AppNotes },
+  components: { TheFilter, TheSidebar, AppNotes, AppPageTitle, AppLoader },
 }
 </script>
 
-<style scoped>
-.home-to-create:hover {
-  color: #d6d8db;
-}
-</style>
+<style></style>

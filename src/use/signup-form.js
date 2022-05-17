@@ -51,7 +51,7 @@ export function useSignupForm() {
     try {
       await store.dispatch('signup/signup', values)
       localStorage.setItem('name', values.name)
-      //Реализовать приветсвие не забудь!!!
+      commit('clearMessage', null, { root: true })
       router.push('/auth')
     } catch (e) {}
   })

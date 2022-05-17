@@ -28,6 +28,14 @@ const routes = [
     },
   },
   {
+    path: '/notes/:id',
+    component: () => import('@/views/NotePage.vue'),
+    meta: {
+      layout: 'main',
+      auth: true,
+    },
+  },
+  {
     path: '/auth',
     component: () => import('@/views/AuthPage.vue'),
     meta: {

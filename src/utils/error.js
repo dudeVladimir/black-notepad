@@ -6,6 +6,8 @@ const ERROR_CODES = {
   TOO_MANY_ATTEMPTS_TRY_LATER:
     'Мы заблокировали все запросы с этого устройства из-за необычной активности. Попробуйте позже.',
   auth: 'Пожалуйста войдите в систему',
+  'Request failed with status code 401':
+    'Необходимо пройти авторизацию повторно',
 }
 
 export function error(code) {

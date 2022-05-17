@@ -5,7 +5,9 @@
 @import url(./styles/home-page-content.css);
 @import url(./styles/badge.css);
 @import url(./styles/create-form.css);
-@import url(./styles//alert-message.css);
+@import url(./styles/alert-message.css);
+@import url(./styles/note-page.css);
+@import url(./styles/loader.css);
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -40,12 +42,38 @@ button {
   grid-template-columns: 1fr 5fr;
 }
 
+.page-title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #afb1b446;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
 .sidebar {
   border-right: 1px solid #afb1b4;
-  padding: 10px 5px;
+  padding: 10px 15px;
   height: 100vh;
 }
 
 .home-page__content {
   padding: 20px;
+}
+
+.to:hover {
+  color: #d6d8db;
+}
+
+.back {
+  padding: 5px;
+  margin-right: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #2c2e31;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: #d6d8db;
+  background-color: #35373b;
 }

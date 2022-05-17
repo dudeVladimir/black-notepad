@@ -13,20 +13,36 @@
         <option value="note">Заметка</option>
         <option value="important">Важное</option>
       </select>
-      <button class="filter__btn_danger">Очистить</button>
+      <button class="filter__btn_danger" v-if="isActive" @click="reset">
+        Очистить
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import { ref } from '@vue/reactivity'
+import { computed, watch } from '@vue/runtime-core'
 export default {
-  setup() {
-    const title = ref(null)
-    const type = ref(null)
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
+  setup(_, { emit }) {
+    const title = ref()
+    const type = ref()
+
+    watch([title, type], (values) => {
+      emit('update:modelValue', { title: values[0], type: values[1] })
+    })
+
+    const isActive = computed(() => title.value || type.value)
+
     return {
       title,
       type,
+      isActive,
+      reset: () => {
+        ;(title.value = null), (type.value = null)
+      },
     }
   },
 }

@@ -1,0 +1,30 @@
+.note {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.note > * {
+  width: 100%;
+}
+
+.note__btn_danger {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: 1px solid #b22222;
+  border-radius: 10px;
+  background-color: #b22222;
+  width: 70px;
+}
+
+.note__btn_danger:hover {
+  background-color: #b22222c7;
+}
+
+.note__btn_danger:active {
+  background-color: #b222228a;
+  border: 1px solid #b222228a;
+}
