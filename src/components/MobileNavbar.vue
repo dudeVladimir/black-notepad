@@ -1,20 +1,39 @@
 <template>
   <nav class="mobile-nav">
     <div class="nav-link-block_mobile">
-      <router-link to="/" class="nav-link-block__link">Главная</router-link>
-      <router-link to="/create" class="nav-link-block__link"
-        >Создать</router-link
-      >
-      <router-link to="/faq" class="nav-link-block__link">FAQ</router-link>
+      <router-link to="/" class="nav-link-nav-link-block__link_mobile"
+        ><img
+          src="@/assets/img/home.png"
+          alt="Главная"
+          class="nav-img"
+          id="home"
+      /></router-link>
+      <router-link to="/create" class="nav-link-nav-link-block__link_mobile"
+        ><img
+          src="@/assets/img/create.png"
+          alt="Создать"
+          class="nav-img"
+          id="create"
+      /></router-link>
+      <router-link to="/faq" class="nav-link-nav-link-block__link_mobile"
+        ><img src="@/assets/img/faq.png" alt="FAQ" class="nav-img"
+      /></router-link>
       <a
         href="https://github.com/dudeVladimir"
         target="_blank"
-        class="nav-link-block__link"
-        >GitHub</a
-      >
-      <router-link to="/auth" class="nav-link-block__link" @click="logout"
-        >Выйти</router-link
-      >
+        class="nav-link-nav-link-block__link_mobile"
+        ><img src="@/assets/img/git.png" alt="GitHub" class="nav-img"
+      /></a>
+      <router-link
+        to="/auth"
+        class="nav-link-nav-link-block__link_mobile"
+        @click="logout"
+        ><img
+          src="@/assets/img/logout.png"
+          alt="Выход"
+          class="nav-img"
+          id="logout"
+      /></router-link>
     </div>
   </nav>
 </template>

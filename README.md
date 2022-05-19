@@ -1,19 +1,7 @@
 # note-list-new1
 
 ## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
 ```
-npm run serve
+Это приложение написано с использованием Composition API. Система авторизации, регистрации и БД - Firebase. Использованны VueJS, Vuex, VueRouter, Axios - для работы с запросами к Firebase, для валидации форм использованны vee-validate & yup
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
