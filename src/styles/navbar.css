@@ -29,3 +29,14 @@ nav {
 .nav-link-block__link.active {
   border-bottom: 2px solid #705831;
 }
+
+.mobile-nav {
+  top: auto;
+  position: fixed;
+  bottom: -1px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-top: 1px solid #afb1b4;
+}

@@ -3,7 +3,7 @@
   <div v-else>
     <div class="note" v-if="note">
       <app-page-title :title="`Заметка с ID: ${$route.params.id}`">
-        <a class="back" @click.prevent="$router.go(-1)">&#9668;</a>
+        <a class="back" @click="$router.go(-1)">&#9668;</a>
       </app-page-title>
       <form class="create__form" @submit.prevent="onSubmit">
         <input
@@ -54,33 +54,97 @@
 </template>
 
 <script>
+import * as yup from 'yup'
+import { useField, useForm } from 'vee-validate'
 import AppPageTitle from '@/components/ui/AppPageTitle.vue'
-import { onMounted, ref } from '@vue/runtime-core'
-import { useStore } from 'vuex'
-import { useRoute, useRouter } from 'vue-router'
-import { useUpdateForm } from '@/use/update-form'
 import AppLoader from '@/components/ui/AppLoader.vue'
+import { onMounted, ref } from '@vue/runtime-core'
+import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default {
   setup() {
-    const store = useStore()
     const router = useRouter()
+    const store = useStore()
     const route = useRoute()
 
-    const loading = ref(false)
+    const loading = ref(true)
+    const note = ref({})
 
     onMounted(async () => {
       loading.value = true
-      await store.dispatch('request/loadById', route.params.id)
+      note.value = await store.dispatch('request/loadById', route.params.id)
+      title.value = note.value.title
+      body.value = note.value.body
+      type.value = note.value.type
       loading.value = false
+    })
+
+    const { handleSubmit, isSubmitting } = useForm()
+
+    const {
+      value: title,
+      errorMessage: tError,
+      handleBlur: tBlur,
+    } = useField(
+      'title',
+      yup
+        .string()
+        .trim()
+        .required('Это поле обязательно')
+        .max(30, 'Максимальное количество символов - 30')
+    )
+
+    const {
+      value: body,
+      errorMessage: bError,
+      handleBlur: bBlur,
+    } = useField(
+      'body',
+      yup
+        .string()
+        .trim()
+        .required('Это поле обязательно')
+        .max(1000, 'Максимальное количество символов - 1000')
+    )
+
+    const {
+      value: type,
+      errorMessage: tyError,
+      handleBlur: tyBlur,
+    } = useField(
+      'type',
+      yup
+        .string()
+        .trim()
+        .required('Это поле обязательно')
+        .max(1000, 'Максимальное количество символов - 1000')
+    )
+
+    const onSubmit = handleSubmit(async (values) => {
+      await store.dispatch('request/update', { ...values, id: route.params.id })
     })
 
     const remove = async (id) => {
       await store.dispatch('request/remove', id)
       router.push('/')
     }
-
-    return { loading, remove, ...useUpdateForm() }
+    return {
+      note,
+      loading,
+      remove,
+      title,
+      tBlur,
+      tError,
+      body,
+      bBlur,
+      bError,
+      type,
+      tyBlur,
+      tyError,
+      onSubmit,
+      isSubmitting,
+    }
   },
   components: {
     AppPageTitle,
@@ -88,5 +152,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

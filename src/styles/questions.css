@@ -1,0 +1,20 @@
+.questions {
+  max-width: 1000px;
+  padding: 20px 20px;
+  margin: 0 auto;
+}
+
+.question {
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.question:hover {
+  background-color: #35373b;
+}
+
+.question:active {
+  background-color: #2c2e31;
+}

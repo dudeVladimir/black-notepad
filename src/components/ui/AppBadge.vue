@@ -15,7 +15,7 @@ export default {
   setup(props) {
     const typeText = computed(() => {
       if (props.type === 'important') {
-        return 'Важно'
+        return 'Важное'
       } else {
         return 'Заметка'
       }

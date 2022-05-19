@@ -77,9 +77,8 @@ export default {
         const { data } = await axiosRequest.get(
           `/${localId}/notes/${id}.json?auth=${token}`
         )
-        if (data) {
-          commit('setRequest', data)
-        }
+        commit('setRequest', data)
+        return data
       } catch (e) {}
     },
     async update({ commit, dispatch }, note) {

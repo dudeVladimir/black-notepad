@@ -50,7 +50,6 @@ export function useSignupForm() {
   const onSubmit = handleSubmit(async (values) => {
     try {
       await store.dispatch('signup/signup', values)
-      localStorage.setItem('name', values.name)
       commit('clearMessage', null, { root: true })
       router.push('/auth')
     } catch (e) {}

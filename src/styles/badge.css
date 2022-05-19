@@ -3,6 +3,7 @@
   border: 1px solid #afb1b4;
   padding: 0 10px;
   border-radius: 10px;
+  margin-left: 5px;
 }
 
 .badge.danger {

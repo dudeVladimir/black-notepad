@@ -2,12 +2,14 @@
   <div class="notes">
     <div
       class="notes__card"
-      v-for="note in notes"
+      v-for="(note, idx) in notes"
       :key="note.id"
       @click="navigate(note.id)"
     >
       <div class="card__title">
-        <h4>{{ note.title }}</h4>
+        <h4>
+          <span>{{ idx + 1 }}.</span> {{ note.title }}
+        </h4>
         <app-badge :type="note.type"></app-badge>
       </div>
       <p>{{ note.body }}</p>
@@ -35,4 +37,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+span {
+  font-weight: 300;
+}
+</style>
