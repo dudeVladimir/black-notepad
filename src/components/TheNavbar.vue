@@ -8,7 +8,7 @@
       >
       <router-link to="/faq" class="nav-link-block__link">FAQ</router-link>
       <a
-        href="https://github.com/dudeVladimir"
+        href="https://github.com/dudeVladimir/black-notepad"
         target="_blank"
         class="nav-link-block__link"
         >GitHub</a

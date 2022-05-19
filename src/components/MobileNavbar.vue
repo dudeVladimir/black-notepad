@@ -19,7 +19,7 @@
         ><img src="@/assets/img/faq.png" alt="FAQ" class="nav-img"
       /></router-link>
       <a
-        href="https://github.com/dudeVladimir"
+        href="https://github.com/dudeVladimir/black-notepad"
         target="_blank"
         class="nav-link-nav-link-block__link_mobile"
         ><img src="@/assets/img/git.png" alt="GitHub" class="nav-img"
