@@ -36,6 +36,14 @@ const routes = [
     },
   },
   {
+    path: '/:notFound(.*)',
+    component: () => import('@/views/NotFound.vue'),
+    meta: {
+      layout: 'main',
+      auth: true,
+    },
+  },
+  {
     path: '/auth',
     component: () => import('@/views/AuthPage.vue'),
     meta: {
