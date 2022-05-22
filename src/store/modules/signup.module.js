@@ -12,6 +12,14 @@ export default {
           returnSecureToken: true,
         })
         commit('clearMessage', null, { root: true })
+        dispatch(
+          'setMessage',
+          {
+            value: 'Вы успешно зарегистрированны',
+            type: 'primary',
+          },
+          { root: true }
+        )
       } catch (e) {
         dispatch(
           'setMessage',

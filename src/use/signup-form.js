@@ -48,11 +48,11 @@ export function useSignupForm() {
   })
 
   const onSubmit = handleSubmit(async (values) => {
-    try {
-      await store.dispatch('signup/signup', values)
-      commit('clearMessage', null, { root: true })
-      router.push('/auth')
-    } catch (e) {}
+    await store.dispatch('signup/signup', values)
+    name.value = ''
+    email.value = ''
+    password.value = ''
+    router.push('/auth')
   })
 
   return {

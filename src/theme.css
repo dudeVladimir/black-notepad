@@ -1,15 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url(./styles/navbar.css);
-@import url(./styles/auth-form.css);
-@import url(./styles/filter-form.css);
-@import url(./styles/home-page-content.css);
-@import url(./styles/badge.css);
-@import url(./styles/create-form.css);
-@import url(./styles/alert-message.css);
-@import url(./styles/note-page.css);
-@import url(./styles/loader.css);
-@import url(./styles/questions.css);
-@import url(./styles/adapt.css);
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -79,3 +68,15 @@ button {
   color: #d6d8db;
   background-color: #35373b;
 }
+
+@import url(./styles/navbar.css);
+@import url(./styles/auth-form.css);
+@import url(./styles/filter-form.css);
+@import url(./styles/home-page-content.css);
+@import url(./styles/badge.css);
+@import url(./styles/create-form.css);
+@import url(./styles/alert-message.css);
+@import url(./styles/note-page.css);
+@import url(./styles/loader.css);
+@import url(./styles/questions.css);
+@import url(./styles/adapt.css);
